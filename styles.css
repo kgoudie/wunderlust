@@ -68,112 +68,77 @@ body {
     background-color: var(--white);
     margin: 0;
     padding: 0;
-    line-height: 1.8;
+    line-height: 1.6;
 }
 
 h1, h2, h3 {
     font-family: 'Molle', cursive;
-    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    text-align: center;
 }
 
 h4, p, q, small, nav, button, form {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Header Styling */
+/* Mobile-First Styles */
 header {
     background-color: var(--teal);
     color: var(--white);
     text-align: center;
     padding: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
 }
 
 #logo img {
-    max-width: 120px;
+    max-width: 100px;
 }
 
 nav ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 nav a {
     text-decoration: none;
     color: var(--white);
     font-weight: 600;
-    font-size: 1.1rem;
-    padding: 10px;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: var(--yellow);
-}
-
-/* Intro Section */
-#intro {
-    text-align: center;
-    padding: 3rem 2rem;
-    background-color: var(--light-gray);
+    font-size: 1rem;
 }
 
 #img-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 15px;
-    justify-content: center;
+    align-items: center;
 }
 
 #img-grid img {
-    width: 30%;
-    height: auto;
+    width: 80%;
     border-radius: 10px;
 }
 
-/* Plan Your Trip Section */
-#plan div {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+#plan div, #testimonials div, #about div {
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    gap: 20px;
     padding: 2rem 0;
-}
-
-#plan section img {
-    width: 50px;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-/* Testimonials */
-#testimonials div {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-    padding: 3rem;
-    text-align: center;
 }
 
 #testimonials section img {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    margin-bottom: 10px;
 }
 
-/* Contact Form */
 form {
     background-color: var(--white);
     padding: 2rem;
-    max-width: 600px;
+    max-width: 90%;
     margin: auto;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -195,14 +160,8 @@ button, input[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s;
 }
 
-button:hover, input[type="submit"]:hover {
-    background-color: var(--purple);
-}
-
-/* Footer */
 footer {
     background-color: var(--dark-gray);
     color: var(--white);
@@ -210,19 +169,49 @@ footer {
     padding: 1.5rem;
 }
 
-/* Responsive Fixes */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-    
+/* Tablet View (768px and up) */
+@media (min-width: 768px) {
     nav ul {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    #img-grid {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
     #img-grid img {
         width: 45%;
+    }
+
+    #plan div, #testimonials div, #about div {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+/* Desktop View (1024px and up) */
+@media (min-width: 1024px) {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem;
+    }
+    
+    #logo img {
+        max-width: 140px;
+    }
+    
+    #img-grid img {
+        width: 30%;
+    }
+    
+    #plan div, #testimonials div, #about div {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
