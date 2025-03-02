@@ -65,7 +65,7 @@ table {
 body {
     font-family: 'Montserrat', sans-serif;
     color: var(--dark-gray);
-    background-color: var(--white);
+    background-color: var(--yellow); 
     margin: 0;
     padding: 0;
     line-height: 1.6;
