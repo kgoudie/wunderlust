@@ -49,7 +49,6 @@ table {
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Molle:ital@1&family=Montserrat:wght@400;600&display=swap');
 
-/* Root Variables for Branding Colors */
 :root {
     --yellow: #F6D64A;
     --teal: #55BCD5;
@@ -61,27 +60,36 @@ table {
     --black: #000000;
 }
 
-/* General Styles */
+/* Global Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark-gray);
+    background-color: var(--yellow); 
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
-    color: #333;
+    line-height: 1.6;
 }
 
-/* Header */
-header {
-    background: #004d66;
-    color: #fff;
+h1, h2, h3 {
+    font-family: 'Molle', cursive;
+    font-size: 2rem;
     text-align: center;
-    padding: 20px;
 }
 
-header img {
-    max-width: 120px;
-    display: block;
-    margin: 0 auto 10px;
+h4, p, q, small, nav, button, form {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Mobile-First Styles */
+header {
+    background-color: var(--teal);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+}
+
+#logo img {
+    max-width: 100px;
 }
 
 nav ul {
@@ -93,106 +101,116 @@ nav ul {
     gap: 10px;
 }
 
-nav ul li {
-    display: block;
-}
-
-nav ul li a {
-    color: #fff;
+nav a {
     text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1rem;
 }
 
-/* Sections */
-section {
-    padding: 20px;
-    background: #fff;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    color: #004d66;
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.image-gallery {
+#img-grid {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
 }
 
-.image-gallery img {
-    width: 100%;
+#img-grid img {
+    width: 80%;
     border-radius: 10px;
 }
 
-/* Testimonials */
-.testimonial {
+#plan div, #testimonials div, #about div {
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    padding: 15px;
-    background: #eef7f9;
-    margin: 15px auto;
-    border-radius: 10px;
+    padding: 2rem 0;
+    gap: 20px;
 }
 
-.testimonial img {
-    width: 70px;
-    height: 70px;
+#testimonials section img {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    margin-bottom: 10px;
 }
 
-blockquote {
-    font-style: italic;
-    color: #555;
+form {
+    background-color: var(--white);
+    padding: 2rem;
+    max-width: 90%;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid var(--dark-gray);
+    border-radius: 5px;
+}
+
+button, input[type="submit"] {
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
 footer {
+    background-color: var(--dark-gray);
+    color: var(--white);
     text-align: center;
-    background: #004d66;
-    color: white;
-    padding: 10px 0;
-    margin-top: 20px;
+    padding: 1.5rem;
 }
 
-/* Mobile First (default) */
-@media (min-width: 600px) {
-    /* Tablet */
-    header img {
-        max-width: 150px;
-    }
-    
+/* Tablet View (768px and up) */
+@media (min-width: 768px) {
     nav ul {
         flex-direction: row;
-        gap: 15px;
+        justify-content: center;
+        gap: 20px;
     }
-    
-    .image-gallery img {
+
+    #img-grid {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    #img-grid img {
         width: 45%;
     }
-    
-    .testimonial {
-        max-width: 500px;
+
+    #plan div, #testimonials div, #about div {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
     }
 }
 
+/* Desktop View (1024px and up) */
 @media (min-width: 1024px) {
-    /* Large Screens */
-    section {
-        padding: 40px 10%;
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem;
     }
     
-    .image-gallery img {
+    #logo img {
+        max-width: 140px;
+    }
+    
+    #img-grid img {
         width: 30%;
     }
     
-    .testimonial {
-        max-width: 600px;
+    #plan div, #testimonials div, #about div {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
