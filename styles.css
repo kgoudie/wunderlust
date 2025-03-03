@@ -49,6 +49,7 @@ table {
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Molle:ital@1&family=Montserrat:wght@400;600&display=swap');
 
+/* Root Variables for Branding Colors */
 :root {
     --yellow: #F6D64A;
     --teal: #55BCD5;
